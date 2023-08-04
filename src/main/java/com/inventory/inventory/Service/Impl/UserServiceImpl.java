@@ -16,8 +16,13 @@ public class UserServiceImpl implements IUserService {
 	private IUserRepository userRepository;
 
 	@Override
-	public User insertUser(User user) {
-		return userRepository.save(user);
+	public ResponseEntity<User> insertUser(User user) {
+		try {
+			User _user = userRepository.save(user);
+			return new ResponseEntity<>(_user, HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 
 	@Override

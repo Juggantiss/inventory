@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface IUserService {
-	User insertUser(User user);
+	ResponseEntity<User> insertUser(User user);
 
 	ResponseEntity<List<User>> getAllUsers();
 }

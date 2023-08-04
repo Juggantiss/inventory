@@ -19,4 +19,9 @@ public class UserController {
 	public ResponseEntity<List<User>> getAllUsers() {
 		return userService.getAllUsers();
 	}
+
+	@PostMapping
+	public ResponseEntity<User> insertUser(@RequestBody User user) {
+		return userService.insertUser(user);
+	}
 }
